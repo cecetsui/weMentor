@@ -25,8 +25,21 @@
       z-index: 10;
       border-radius: 4px;
       box-shadow: 0 0 5px rgba (0,0,0,0.9);
+    }
 
+    .centered-content {
+      background-color: white;
+      padding: 20px;
+    }
 
+    .button {
+      font-size:20px; 
+      font-family: 'Shadows Into Light' cursive; 
+      border-radius: 25px;
+    }
+    h1 {
+      font-size: 70px; 
+      font-family: 'Indie Flower';
     }
 
     
@@ -57,11 +70,7 @@
 
   <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-  <div style = "float: right">
-    <button onclick= 'joinPopUp()' type = "button" id = "Join" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Join</button>
-    <button onclick = 'loginPopUp()' type = "button" id = "Login" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Login</button>
 
-  </div>
 
   
 
@@ -70,61 +79,50 @@
 </header>
 
 <body style = "background-color: #EFEBD6">
-  <CENTER>
-    <div>
-      <br><br><br><br><br><br><br>
-      <h1 style = "font-size: 70px; font-family: 'Indie Flower'";> GROWTH <br> AWAITS </h1>
-       <div>
-    <button type = "button" id = "Mentor" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px" >Join As A Mentor</button>
-    <button type = "button" id = "Mentee" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Join As A Mentee</button>
-
+  <div style = "float: right">
+    <button class= 'button' onclick= 'joinPopUp()' type = "button" id = "Join">Join</button>
+    <button class= 'button' onclick = 'loginPopUp()' type = "button" id = "Login">Login</button>
   </div>
-
-
-
-    </div>
+  <br><br><br><br><br><br><br>
+  <CENTER class='centered-content'>
+    <div>
+      <h1> GROWTH <br> AWAITS </h1>
+    <div>
+    <button class= 'button' type = "button" id = "Mentor"> Join As A Mentor</button>
+    <button class='button' type = "button" id = "Mentee"> Join As A Mentee</button>
   </CENTER>
 
 
+  <div id = "overlay" class = "overlay-background"> </div>
 
+  <div id = "joinPop" class = "overlay-content">
+    <button type="button" onclick="close()">X</button>
+    <CENTER><h1>Welcome to WeMentor!</h1>
+    <div>Please join with your LinkedIn account!</div></CENTER>
+    <form>
+      LinkedIn Username:
+      <input type="text" name="username">
+      <br>
+      Password:
+      <input type="text" name="password">
+    </form>
+    <button type = "button" id="signUp" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign Up!</button>
+  </div>
 
+  <div id = "loginPop" class = "overlay-content">
+    <button type="button" onclick="close()">X</button>
+
+    <CENTER><h1>Welcome to WeMentor!</h1>
+    <div>Please join with your LinkedIn account!</div></CENTER>
+    <form>
+      LinkedIn Username:
+      <input type="text" name="username">
+      <br>
+      Password:
+      <input type="text" name="password">
+    </form>
+    <button type = "button" id="signIn" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign In!</button>
+  </div>
+  </div>
 </body>
-
-<div style = "position: absolute; left: 50; bottom: 0">
-    <button type = "button" id = "Meet" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Meet Mentors</button>
-
-</div>
-
-<div id = "overlay" class = "overlay-background"> </div>
-
-<div id = "joinPop" class = "overlay-content">
-  <button type="button" onclick="close()">X</button>
-  <CENTER><h1>Welcome to WeMentor!</h1>
-  <div>Please join with your LinkedIn account!</div></CENTER>
-  <form>
-    LinkedIn Username:
-    <input type="text" name="username">
-    <br>
-    Password:
-    <input type="text" name="password">
-  </form>
-  <button type = "button" id="signUp" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign Up!</button>
-</div>
-
-<div id = "loginPop" class = "overlay-content">
-  <button type="button" onclick="close()">X</button>
-
-  <CENTER><h1>Welcome to WeMentor!</h1>
-  <div>Please join with your LinkedIn account!</div></CENTER>
-  <form>
-    LinkedIn Username:
-    <input type="text" name="username">
-    <br>
-    Password:
-    <input type="text" name="password">
-  </form>
-  <button type = "button" id="signIn" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign In!</button>
-</div>
-</div>
-
 </html>
