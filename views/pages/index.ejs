@@ -35,16 +35,23 @@
   <script type = "text/javascript">
     showPopUp = function(popUpContent) {
       document.getElementById("overlay").style.display = "block";
-      document.getElementById("popUp").style.display = "block";
+      document.getElementById(popUpContent).style.display = "block";
     }
 
     joinPopUp = function() {
-      showPopUp('join');
+      showPopUp('joinPop');
     }
 
     loginPopUp = function() {
-      showPopUp('login');
+      showPopUp('loginPop');
     }
+
+    close = function() {
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("joinPop").style.display = "none";
+      document.getElementById("loginPop").style.display = "none";
+
+      }
 
   </script>
 
@@ -89,6 +96,35 @@
 </div>
 
 <div id = "overlay" class = "overlay-background"> </div>
-<div id = "popUp" class = "overlay-content"> </div>
+
+<div id = "joinPop" class = "overlay-content">
+  <button type="button" onclick="close()">X</button>
+  <CENTER><h1>Welcome to WeMentor!</h1>
+  <div>Please join with your LinkedIn account!</div></CENTER>
+  <form>
+    LinkedIn Username:
+    <input type="text" name="username">
+    <br>
+    Password:
+    <input type="text" name="password">
+  </form>
+  <button type = "button" id="signUp" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign Up!</button>
+</div>
+
+<div id = "loginPop" class = "overlay-content">
+  <button type="button" onclick="close()">X</button>
+
+  <CENTER><h1>Welcome to WeMentor!</h1>
+  <div>Please join with your LinkedIn account!</div></CENTER>
+  <form>
+    LinkedIn Username:
+    <input type="text" name="username">
+    <br>
+    Password:
+    <input type="text" name="password">
+  </form>
+  <button type = "button" id="signIn" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign In!</button>
+</div>
+</div>
 
 </html>
