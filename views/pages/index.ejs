@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<header style = "background-color: #EFEBD6">
+<head>
   <style type="text/css">
     .overlay-background {
       display: none;
@@ -45,26 +45,18 @@
     
   </style>
 
+
   <script type = "text/javascript">
-    showPopUp = function(popUpContent) {
+
+    showPopUp = function() {
       document.getElementById("overlay").style.display = "block";
-      document.getElementById(popUpContent).style.display = "block";
+      document.getElementById('loginPop').style.display = "block";
     }
 
-    joinPopUp = function() {
-      showPopUp('joinPop');
-    }
-
-    loginPopUp = function() {
-      showPopUp('loginPop');
-    }
-
-    close = function() {
+    closePopUp = function() {
       document.getElementById("overlay").style.display = "none";
-      document.getElementById("joinPop").style.display = "none";
       document.getElementById("loginPop").style.display = "none";
-
-      }
+    }
 
   </script>
 
@@ -76,12 +68,12 @@
 
 
 
-</header>
+</head>
 
 <body style = "background-color: #EFEBD6">
   <div style = "float: right">
-    <button class= 'button' onclick= 'joinPopUp()' type = "button" id = "Join">Join</button>
-    <button class= 'button' onclick = 'loginPopUp()' type = "button" id = "Login">Login</button>
+    <button class= 'button' type = "button" id = "Join"><a style="none" href="/join">Join</a></button>
+    <button class= 'button' onclick = 'showPopUp()' type = "button" id = "Login">Login</button>
   </div>
   <br><br><br><br><br><br><br>
   <CENTER class='centered-content'>
@@ -95,25 +87,12 @@
 
   <div id = "overlay" class = "overlay-background"> </div>
 
-  <div id = "joinPop" class = "overlay-content">
-    <button type="button" onclick="close()">X</button>
-    <CENTER><h1>Welcome to WeMentor!</h1>
-    <div>Please join with your LinkedIn account!</div></CENTER>
-    <form>
-      LinkedIn Username:
-      <input type="text" name="username">
-      <br>
-      Password:
-      <input type="text" name="password">
-    </form>
-    <button type = "button" id="signUp" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign Up!</button>
-  </div>
 
   <div id = "loginPop" class = "overlay-content">
-    <button type="button" onclick="close()">X</button>
+    <button type="button" onclick='closePopUp()'>X</button>
 
     <CENTER><h1>Welcome to WeMentor!</h1>
-    <div>Please join with your LinkedIn account!</div></CENTER>
+    <div>Please log in with your LinkedIn account!</div></CENTER>
     <form>
       LinkedIn Username:
       <input type="text" name="username">

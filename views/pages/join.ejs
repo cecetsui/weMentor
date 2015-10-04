@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+	function OnLinkedInFrameworkLoad() {
+		console.log("LOGGED IN");
+		IN.Event.on(IN, "auth", OnLinkedInAuth);
+	}
+
+	function OnLinkedInAuth() {
+		IN.API.Profile("me").result(ShowProfileData);
+	}
+
+	function ShowProfileData(profiles) {
+		var member = profiles.values[0];
+    	var id=member.id;
+    	var firstName=member.firstName; 
+    	var lastName=member.lastName; 
+    	var photo=member.pictureUrl; 
+    	var headline=member.headline; 
+    	// console.log(firstName);
+    	// console.log(lastName);
+
+    	$.post("/userdata", 
+		    {id:id, firstName:firstName, lastName:lastName, photo:photo, headline:headline},
+		    function(data, status){
+		        alert("Data: " + data + "\nStatus: " + status);
+		    });
+
+    	if (navigator.geolocation) {
+    		navigator.geolocation.getCurrentPosition(showPosition);
+    	}
+	}
+
+	function showPosition(position) {
+		console.log(position.coords.latitude);
+		console.log(position.coords.longitude);
+
+	    $.post("/positiondata", 
+		    {latitude: position.coords.latitude, longitude: position.coords.longitude},
+		    function(data, status){
+		        alert("Data: " + data + "\nStatus: " + status);
+		    });
+		
+	}
+
+</script>
+ <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   77wfewec19w4nj
+    onLoad: OnLinkedInFrameworkLoad
+    authorize: true
+  </script>
+</head>
+<body>
+	
+
+<div id="form">
+
+	<form action="">
+	<input type="checkbox" name="mentor" id="Mentor">Sign up as a mentor<br>
+	<input type="checkbox" name="mentee" id="Mentee">Sign up as a mentee 
+	</form>
+
+	Name:<br><input id='name'></input><br>Last Name:<br><input id = 'lastName'></input><br>LinkedIn Username:<br><input id='username'></input><br> Email: <br><input id='email'></input><br> Password: <br><input id='password'></input><br>
+	<script type="in/Login">
+</script>
+ <button>Join!</button>
+
+
+	</div>
+
+</body>
+</html>
