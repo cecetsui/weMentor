@@ -11,6 +11,7 @@ pg.connect(DATABASE_URL, function (err, client, done) {
 	if (err) {
 		return console.error('error fetching client from pool', err);
 	}
+	client.query("INSERT into user_table (firstName, lastName, headline, ")
 	// client.query('INSERT into user_table (firstName, lastName, headline) VALUES($1, $2, $3) RETURNING id', 
  //            ['Cece', 'Tsui', 'yo'], function (err, result) {
 	// 	done();
