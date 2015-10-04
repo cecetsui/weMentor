@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+
+  <style type="text/css">
+      
+  @media ( min-width: 768px ) {
+
+      .grid-divider{
+          position: relative;
+          padding: 100;
+      }
+      .grid-divider[class*='col-'] {
+          position: static;
+      }
+      .grid-divider[class*='col-']:nth-child(n+2):before {
+          content: "";
+          border-left: 1px solid #DDD;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+      }
+      .col-padding {
+          padding: 0 15px;
+      }     
+  }
+  
+  </style>
+  
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Welcome to WeMentor! Meet our fabulous mentors:</h2>
+            <div class="row grid-divider">
+                <div class="col-md-4 text-center">
+                    <div class="box">
+                        <div class="box-content">
+                            <h1 class="tag-title">Zoe Sobin</h1>
+                            <hr />
+                            <p> Software engineer at Hubspot. Lover of humor. Future cat lady.</p>
+                            <br />
+                            <a href="ppc.html" class="btn btn-block btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="box">
+                        <div class="box-content">
+                            <h1 class="tag-title">Mary Lambert</h1>
+                            <hr />
+                            <p>
+                              Singer. Lover of people. Future of music. 
+                            </p>
+                            <br />
+                            <a href="ppc.html" class="btn btn-block btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="box">
+                        <div class="box-content">
+                            <h1 class="tag-title">Stef Lamher</h1>
+                            <hr />
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pharetra quam sollicitudin nibh aliquam finibus. Etiam efficitur felis vel imperdiet varius. Maecenas bibendum elementum molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus finibus semper. Fusce molestie tincidunt leo vel varius. Nam scelerisque nulla feugiat leo consequat, id dignissim sem tincidunt. Proin elit mauris, hendrerit in varius sed, facilisis sit amet neque.</p>
+                            <br />
+                            <a href="ppc.html" class="btn btn-block btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+  </div>
+</div>
+
+</html>
