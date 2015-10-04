@@ -11,7 +11,6 @@ pg.connect(DATABASE_URL, function (err, client, done) {
 	if (err) {
 		return console.error('error fetching client from pool', err);
 	}
-	client.query("INSERT into user_table (firstName, lastName, headline, ")
 	// client.query('INSERT into user_table (firstName, lastName, headline) VALUES($1, $2, $3) RETURNING id', 
  //            ['Cece', 'Tsui', 'yo'], function (err, result) {
 	// 	done();
@@ -20,7 +19,7 @@ pg.connect(DATABASE_URL, function (err, client, done) {
 	// 	}
 	// 	console.log("boom");
 	// 	console.log(result);
-	// });
+	// // });
 
 	client.query('SELECT firstName FROM user_table', function (err, results) {
 		done();
@@ -31,12 +30,6 @@ pg.connect(DATABASE_URL, function (err, client, done) {
 		console.log(results.rows[0]);
 	});
 });
-
-
-
-
-
-
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -54,8 +47,9 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/join', function(request, response) {
-  response.render('pages/join');
+// app.get('/join', function(request, response) {
+//   response.render('pages/join');
+// });
 
 app.get('/registration', function(request, response) {
   response.render('pages/registration');
@@ -87,7 +81,6 @@ app.listen(app.get('port'), function() {
 
 app.post('/positiondata', function(request, response){
 	console.log("success");
-
 	console.log(request.body);
 
 });
@@ -99,6 +92,3 @@ app.post('/userdata', function(request, response) {
 	console.log(request.body.photo);
 	console.log(request.body.headline);
 });
-
-
-

@@ -2,7 +2,65 @@
 <html>
 <head>
 <header style = "background-color: #EFEBD6">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=100px, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:100,100' rel='stylesheet' type='text/css'>
 
+
+
+// <script type="text/javascript">
+//   function OnLinkedInFrameworkLoad() {
+//     console.log("LOGGED IN");
+//     IN.Event.on(IN, "auth", OnLinkedInAuth);
+//   }
+
+//   function OnLinkedInAuth() {
+//     IN.API.Profile("me").result(ShowProfileData);
+//   }
+
+//   function ShowProfileData(profiles) {
+//     var member = profiles.values[0];
+//       var id=member.id;
+//       var firstName=member.firstName; 
+//       var lastName=member.lastName; 
+//       var photo=member.pictureUrl; 
+//       var headline=member.headline; 
+//       // console.log(firstName);
+//       // console.log(lastName);
+
+//       $.post("/userdata", 
+//         {id:id, firstName:firstName, lastName:lastName, photo:photo, headline:headline},
+//         function(data, status){
+//             alert("Data: " + data + "\nStatus: " + status);
+//         });
+
+//       if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//       }
+//   }
+
+//   function showPosition(position) {
+//     console.log(position.coords.latitude);
+//     console.log(position.coords.longitude);
+
+//       $.post("/positiondata", 
+//         {latitude: position.coords.latitude, longitude: position.coords.longitude},
+//         function(data, status){
+//             alert("Data: " + data + "\nStatus: " + status);
+//         });
+    
+//   }
+
+// </script>
+ <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   77wfewec19w4nj
+    onLoad: OnLinkedInFrameworkLoad
+    authorize: true
+  </script>
 
 <style type="text/css">
 #header {
@@ -51,13 +109,12 @@
       display: none;
       position: fixed;
       background: #fff;
-      padding: 100%;
-      width: 50%;
+      padding: 5%;
       top: 15%;
-      left: 25%;
+      left: 35%;
       cursor: default;
       z-index: 10;
-      border-radius: 5px;
+      border-radius: 0px;
       opacity: 1;
     }
 
@@ -99,29 +156,84 @@
 
   <script type = "text/javascript">
 
-    showPopUp = function() {
+    showPopUp = function(whichPopUp) {
       document.getElementById("overlay").style.display = "block";
-      document.getElementById('loginPop').style.display = "block";
+      document.getElementById(whichPopUp).style.display = "block";
     }
 
-    closePopUp = function() {
-      document.getElementById("overlay").style.display = "none";
-      document.getElementById("loginPop").style.display = "none";
+    loginPopUp = function() {
+      showPopUp("loginPop");
     }
+
+    joinPopUp = function() {
+      showPopUp("joinPop");
+    }
+
+    closePopUp = function(whichPopUp) {
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById(whichPopUp).style.display = "none";
+    }
+
+    closeLogin = function() {
+      closePopUp('loginPop');
+    }
+
+    closeJoin = function() {
+      closePopUp('joinPop');
+    }
+
+    function OnLinkedInFrameworkLoad() {
+    console.log("LOGGED IN");
+    IN.Event.on(IN, "auth", OnLinkedInAuth);
+  }
+
+  function OnLinkedInAuth() {
+    IN.API.Profile("me").result(ShowProfileData);
+  }
+
+  function ShowProfileData(profiles) {
+    var member = profiles.values[0];
+      var id=member.id;
+      var firstName=member.firstName; 
+      var lastName=member.lastName; 
+      var photo=member.pictureUrl; 
+      var headline=member.headline; 
+      // console.log(firstName);
+      // console.log(lastName);
+
+      $.post("/userdata", 
+        {id:id, firstName:firstName, lastName:lastName, photo:photo, headline:headline},
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+  }
+
+  function showPosition(position) {
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+
+      $.post("/positiondata", 
+        {latitude: position.coords.latitude, longitude: position.coords.longitude},
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+    
+  }
+
 
   </script>
-
- <link href='https://fonts.googleapis.com/css?family=Lato:100,100' rel='stylesheet' type='text/css'>
   
-
-</head>
-=======
 </header>
+</head>
 
 <body style = "background-color: #58586E">
   <div style = "float: right">
-    <button class= 'button' type = "button" id = "Join"><a style="none" href="/join">Join</a></button>
-    <button class= 'button' onclick = 'showPopUp()' type = "button" id = "Login">Login</button>
+    <button class= 'button' onclick = 'joinPopUp()' type = "button" id = "Join">Join</button>
+    <button class= 'button' onclick = 'loginPopUp()' type = "button" id = "Login">Login</button>
   </div>
   <br><br><br><br><br><br><br>
   <CENTER class='centered-content'>
@@ -156,7 +268,7 @@
 
 
   <div id = "loginPop" class = "overlay-content">
-    <button type="button" onclick='closePopUp()'>X</button>
+    <button type="button" onclick='closeLogin()'>X</button>
 
     <CENTER><h1>Welcome to WeMentor!</h1>
     <div>Please log in with your LinkedIn account!</div></CENTER>
@@ -169,7 +281,24 @@
     </form>
     <button type = "button" id="signIn" style = "font-size:20px; font-family: 'Shadows Into Light', cursive; border-radius: 25px">Sign In!</button>
   </div>
+
+  <div id = "joinPop" class = "overlay-content">
+    <button type="button" onclick='closeJoin()'>X</button>
+    <h1>Choose your experience:</h1>
+    <form action="">
+    <button class= 'button' type = "button" id = "Mentor"> Mentor</button>
+    <button class='button' type = "button" id = "Mentee"> Mentee</button>
+    <br>
+    </br>
+    </form>
+    <form>
+    Join by Connecting Your LinkedIn:<br>
+    <script type="in/Login"></script>
+    <br><br>
+    <input type="submit" value="Join WeMentor!">
+    </form>
   </div>
+
 </body>
 <br>
 <br>
