@@ -2,24 +2,29 @@
 <html>
 <style type="text/css">
 #header {
-    background-color:black;
+    background-color:#58586E;
     color:white;
     text-align:center;
     padding:5px;
+    font-family: 'Lato';
+    width:98.9%;
 }
 #nav {
     line-height:30px;
     background-color:#eeeeee;
-    margin: auto;    
-    width:200px;
+    height:1000px;
+    width:20%;
     float:left;
     padding:5px; 
-    ;
+     font-family: 'Lato';
 }
 #section {
-    width:350px;
+    width:60%;
     float:left;
     padding:10px; 
+    font-size: 20px; 
+    font-family: 'Lato';
+    }
 }
 #footer {
     background-color:black;
@@ -28,95 +33,162 @@
     text-align:center;
     padding:5px; 
 }
+
+#aside { 
+    background-color:#CDCDD4;
+    display: inline-block;
+    height: 1000px; 
+    width: 10%; 
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:45px; 
+}
 </style>
 
 
 
-
-<header style = "background-color: #58586E">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>My Dashboard</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=10px, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
-<body>
-
 <div id="header">
 <h1>Hi, I'm Montse!</h1>
 </div>
+  
+ 
 
 <div id="nav">
-PICTURE GOES HERE<br>
-BIO<br>
-BIO<br>
-BIO<br>
+  <center>
+  
+        --MY PHOTO--
+        <br>
+            <canvas id="circlecanvas" width="100" height="100"></canvas>
+                <script>
+                  var canvas = document.getElementById("circlecanvas");
+                  var context = canvas.getContext("2d");
+                  context.arc(50, 50, 50, 0, Math.PI * 2, false);
+                  context.fill()
+                </script>
+
+        <img class="img-circle" src pages="kitten.jpg">  
+  
+        <br>
+            Word that describes me<br>
+
+            Word that describes me<br>
+
+            Word that describes me<br>
+
+            --My Bio, in 150 characters or less--<br>
+
+            <br>
+
+             <button class='button' type = "button" id = "Mentee"> LinkedIn</button>
 <br>
-"BIO" UNDERLINED WORD<br>
-ACTUAL BIO<br>
-BIO<br>
+             <button class='button' type = "button" id = "Mentee"> Resume</button>
+<br>
 
-LINKEDIN BUTTON GOES HERE<br>
-RESUME BUTTON GOES HERE<br>
-
-
+</center>
 </div>
-
+  
 <div id="section">
-<h1>Looking for: </h1>
+<h1>What I'm Looking For:</h1>
 <p>
-THIS IS THE KIND OF MENTOR I AM LOOKING FOR!!!!!
+<ul>
+    
 
-<br> 
+                                        <li>Input field: User can describe the kind of mentorship they would like to recieve. </li>
+                                        <li>Input field: User can describe the kind of mentorship they would like to recieve. </li>
+                                        <li>Input field: User can describe the kind of mentorship they would like to recieve. </li>
+
+
+</ul>
+
+
 </p>
-<p>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="box">
-                        <div class="box-content">
-                  
-                            <a href="ppc.html" class="btn btn-block btn-primary">Encourage</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="box">
-                        <div class="box-content">
-                            <h1 class="tag-title">Referrals and Encouragements:</h1>
-                            <hr />
-                            <p>
-                              Singer. Lover of people. Future of music. 
-                            </p>
-                            <br />
-                        
-                        </div>
-                    </div>
-                </div>
-</p>
-</div>
-
-<div id="footer">
-Copyright © WeMentor
-</div>
-
-</body>
-
-
-
-
-
-
-</div>
   
 
 
-</header>
+        <p> 
+            <center>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="box">
+                                <div class="box-content">
+                          
+                                    <button class='button' type = "button" id = "Mentee"> Encourage</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="box">
+                                <div class="box-content">
+                                    <h1 class="tag-title">Referrals and Encouragements:</h1>
+                                    <hr />
+                                    <p>
+                                        <right>
+                                            Input field: Other user's encouragements and referrals.
+                                            <br>
+
+                                            Input field: Other user's encouragements and referrals.
+                                        </right>
+                                    </p>
+                                    <br />
+                                
+                                </div>
+                            </div>
+                        </div>
+            </center>
+        </p>
+</p>
+</div>
+
+ <div id="aside">
+    <col align="right">
+         
+             <br>
+            <button class='button' type = "button" id = "Mentee"> Add to Dash</button>
+            <br>
+             <br>
+             <button class='button' type = "button" id = "Mentee"> Message</button>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+            <br>
+             
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
+             <button class='button' type = "button" id = "Mentee"> Twitter</button>
+             <br> 
+             <br> 
+              <button class='button' type = "button" id = "Mentee"> Facebook</button>
+            <br> 
+            <br> 
+              <button class='button' type = "button" id = "Mentee"> About.me</button>
+
+
+  </div>
+  
+<div id="footer">
+Copyright © WeMentor 2015
+</div>
+  
+
+    
+
+</body>
+
+
+
+
 
 </html>
